@@ -9,6 +9,15 @@ These rules apply to AI coding agents and human contributors working on this rep
 - A regular PR is **not** automatic approval to merge. Wait for the repository owner's acceptance and relevant checks.
 - Reference the Issue in the PR description. Include a concise summary, exact test commands/results, screenshots for UI changes, and any remaining risks.
 
+## Final approval and confidentiality
+
+- **Only `@IEjuggalo` has final decision authority.** No contributor, agent or automation may merge any PR, change the approved product direction, publish, deploy, relicense, or spend funds without the owner's **explicit authorization for that change**. A passing check or “ready for review” is not permission.
+- Technical reviewers may comment, suggest code changes, or recommend approval; those are **advisory**. The owner must make the final merge decision, even on documentation-only PRs.
+- Do not enable automatic merging, automatic production deployment or auto-publishing.
+- Use **public GitHub aliases only** in Issues, PRs and documentation: `@IEjuggalo` and `@justacalico`. No personal names or email addresses.
+- Read [the client brief](docs/PROJECT_BRIEF.md) before implementing designs and [the communication protocol](docs/CONTRIBUTOR_COMMUNICATION.md) for progress, blockers, reference requests, and reviewer feedback. The brief describes *current*, *proposed* and *approved* states separately.
+- The owner's product vision includes a gesture-controlled extreme-sports game, with aggressive inline first. A proposal to make a one-button runner instead is **not an approved replacement**.
+
 ## Git workflow
 
 - Public contributors, including `justacalico`, use a fork and short-lived feature branch. Do not commit directly to the owner's `main`.
