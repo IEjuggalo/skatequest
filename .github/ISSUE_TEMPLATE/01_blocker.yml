@@ -1,0 +1,49 @@
+name: "Blocker / bug report"
+description: "Report something stopping work or a reproducible issue."
+title: "[BLOCKED] "
+labels: ["needs review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use the public contributor alias only. If this is a simple question or routine update, comment on your existing Issue instead.
+        Do not paste passwords, credentials, customer details, local paths with personal names, or private screenshots.
+  - type: input
+    id: related_issue
+    attributes:
+      label: "Related Issue or PR"
+      description: "Link the existing assignment, if any."
+      placeholder: "#4"
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What's blocking you?"
+      placeholder: "Describe the issue in plain language."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Steps to reproduce"
+      placeholder: "1. Open... 2. Run... 3. Observe..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected_actual
+    attributes:
+      label: "Expected vs. actual result"
+      placeholder: "Expected... / Actual..."
+    validations:
+      required: true
+  - type: textarea
+    id: attempts
+    attributes:
+      label: "Safe evidence and attempts"
+      description: "Sanitized logs, public CI links, or screenshots without private data."
+  - type: textarea
+    id: needed
+    attributes:
+      label: "What decision or help is needed?"
+      placeholder: "I need the owner to decide..."
+    validations:
+      required: true
