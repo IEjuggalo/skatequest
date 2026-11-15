@@ -4,6 +4,18 @@ A Flutter app project. Right now the codebase is the stock `flutter create`
 counter template: a single screen with a button that counts taps. Game
 features are not implemented yet.
 
+## Project brief, visual roadmap and feedback
+
+This is **currently a Flutter starter**, not the finished extreme-sports game. To understand the wider client vision (finger-controlled tricks, inline skating first, later skating/BMX/scooters) and what still needs approval:
+
+- [Written client brief + GitHub-rendered visual roadmap](docs/PROJECT_BRIEF.md)
+- [How to report blockers, progress and reference requests](docs/CONTRIBUTOR_COMMUNICATION.md)
+- [Agent/contributor rules: regular PRs, no drafts, owner final approval](AGENTS.md)
+- [Open assignments](https://github.com/IEjuggalo/skatequest/issues)
+- [Open pull requests for review](https://github.com/IEjuggalo/skatequest/pulls)
+
+Please use `@justacalico` and `@IEjuggalo` in public correspondence. A passing build or submitted PR is **not** owner approval to merge or publish.
+
 ## What is in the repo
 
 - `lib/main.dart` - the counter app (`MyApp`, `MyHomePage`)
