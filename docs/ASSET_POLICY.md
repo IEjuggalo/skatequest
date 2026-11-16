@@ -6,7 +6,7 @@ Rules for adding code, art, audio, fonts, and other media to SkateQuest. This ex
 
 The repository is licensed under the GNU Affero General Public License v3 (AGPL-3.0-only). See `LICENSE`.
 
-A note on what that means: AGPLv3 (like GPLv3) is a strong copyleft license, not a noncommercial license. It does not stop anyone from selling or redistributing the software, as long as they follow its terms, including source disclosure. If the owner wants to prevent commercial reuse or resale, that requires a different license, and choosing or changing the license is Matthew's decision. Nobody should silently relicense the repo or assume AGPLv3 blocks resale.
+A note on what that means: AGPLv3 (like GPLv3) is a strong copyleft license, not a noncommercial license. It does not stop anyone from selling or redistributing the software, as long as they follow its terms, including source disclosure. If the owner wants to prevent commercial reuse or resale, that requires a different license, and choosing or changing the license is @IEjuggalo's decision. Nobody should silently relicense the repo or assume AGPLv3 blocks resale.
 
 ## What may be committed
 
