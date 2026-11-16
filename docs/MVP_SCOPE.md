@@ -1,75 +1,85 @@
-# SkateQuest MVP scope and first playable vertical slice
+# SkateQuest MVP options and first-slice decision record
 
-Status: **proposal**, awaiting owner review. Nothing here is approved yet. This document describes the smallest game that could replace the Flutter counter scaffold, so Matthew can approve or trim it before anyone writes gameplay code.
+Status: **proposal for owner review**. Nothing in this document is approved. It lists candidate directions for the first playable slice so @IEjuggalo can approve, trim, or reject them before anyone writes gameplay code.
 
-## What exists today
+Product direction comes from the owner's brief in `docs/PROJECT_BRIEF.md` (introduced in PR #14). That document is the source of truth; this file only proposes options against it.
 
-The repo is the stock Flutter counter app (`lib/main.dart`, one smoke test). There is no gameplay, no art, no approved design. Ideas in the separate `SkaterBladerBMXScoot` concept repo are reference material only and are not approved requirements.
+## Established direction (from the brief)
 
-## Proposed first playable
+- Mobile, finger-controlled extreme-sports game. Working names: GRINDLINE / Finger Xtreme.
+- Tactile gestures are the core interaction: drag, release, flick, spin.
+- Aggressive inline skating first; skateboarding, BMX, and scooters as later modes.
+- Tricks, grinds, skateparks, progression.
+- Original or properly licensed media only.
+- The repo today is still the Flutter counter scaffold. Nothing here authorizes replacing it or the product vision.
 
-A 2D side-scrolling "ollie over obstacles" runner on a skateboard:
+## Candidate A: inline-skating gesture and trick slice (recommended)
 
-- The skater moves right automatically at a fixed speed along a flat street.
-- One input: tap / press to jump. Hold briefly for a slightly higher jump.
-- Obstacles (curb, cone, bench) scroll in from the right. Hitting one ends the run.
-- Score = distance traveled. Show a game-over screen with score and a restart button.
+One small original skatepark spot: flat ground, one rail or ledge, one small ramp.
 
-That is the whole loop: play, crash, see score, restart. No tricks, no levels, no progression.
+Core loop:
 
-### Why this scope
+- Drag along the ground to push and steer the skater.
+- Release, then flick up, to ollie.
+- Drag mid-air to spin.
+- Land aligned on the rail to grind; land badly and the run ends.
+- Each landed trick shows its name and score. Crash, tap, restart instantly.
 
-- One input and one fail condition keeps the first slice small enough to finish and review.
-- It exercises the real plumbing the game will need later (game loop, collision, screens, score) without committing to a big design.
-- Alternatives considered and left out: an endless runner with multiple tricks (too much animation work before any art exists), a top-down exploration game (needs maps and a camera, too large for a first slice), and anything physics-sandbox-like (unbounded scope).
+Screens: title, skate spot, crash/restart overlay.
 
-## Proposed platform and controls
+Why this candidate:
 
-- **Target platform:** Android first, since Flutter already scaffolds it and testing is easiest. Desktop/web stay buildable since Flutter gives that for free.
-- **Input:** touchscreen tap to jump, spacebar/up-arrow on desktop builds. Controller support is out of scope for the slice.
-- **Orientation:** landscape.
+- It tests the actual product idea: whether finger control can feel like skating.
+- It exercises the plumbing the full game needs (gesture recognition, trick/grind detection, collision, scoring, screens) at the smallest size that still proves the concept.
+- It matches the brief's proposed first demonstration.
 
-## Navigation
+Placeholder art only (flat-color shapes). No licensed media, no real park names or locations.
 
-Three screens total:
+## Candidate B: one-button runner (fallback only)
 
-```
-+-------------+      tap start     +-------------+     crash      +-------------+
-| TITLE       | -----------------> | RUN         | -------------> | GAME OVER   |
-| "tap to play"|                   | distance: 12m|               | score: 42m  |
-+-------------+                    +-------------+               | best: 67m   |
-                                                                 | tap to retry |
-                                                                 +-------------+
-```
+The earlier draft of this document proposed a tap-to-jump auto-runner. It stays here only as the lowest-effort fallback:
 
-- Title: project name, one line "tap to play".
-- Run: skater sprite, ground line, obstacles, distance counter.
-- Game over: score, best score (in-memory only), retry prompt.
+- Skater auto-moves, tap to jump obstacles, score is distance.
+- Cheap to build and exercises basic game-loop plumbing, but it does not demonstrate finger-controlled tricks and is not a substitute for the product vision. If chosen, it must ship clearly labeled as a temporary plumbing exercise, not the game direction.
 
-## Acceptance tests (measurable)
+## Rejected for the first slice
 
-1. From a fresh launch, tapping once starts a run, and the distance counter visibly increases.
-2. A jump input while on the ground lifts the skater clear of a cone obstacle; running into a cone without jumping ends the run and shows the score.
-3. After game over, one tap restarts a new run with the distance reset to zero.
+- Full physics sandbox: unbounded tuning with nothing reviewable quickly.
+- Multiple sports or parks before one gesture-trick loop exists.
+- Real city levels or named parks: needs verified references and approved assets, future scope per the brief.
 
-These are checkable in widget tests plus a quick manual run on Android.
+## Decisions for @IEjuggalo
 
-## Decisions for Matthew to approve
+| Decision | Proposal | Status |
+| --- | --- | --- |
+| First-slice concept | Candidate A (inline gesture/trick spot) | **Unapproved**, awaiting owner |
+| Fallback if Candidate A is too large | Candidate B (runner, clearly temporary) | **Unapproved** |
+| Platform order | Android first for testing; desktop/web stay buildable | **Unapproved** |
+| Engine approach | Plain Flutter (`CustomPainter` + `Ticker`); Flame only after a license check and owner sign-off | **Unapproved** |
+| Art for the slice | Flat-color placeholder shapes only | **Unapproved** |
+| Title/branding on screen | Working name per brief; final name TBD | **Unapproved** |
 
-- The runner/one-jump concept itself. If he wants a different fantasy first (vert ramp, street line, something else), this doc should be revised before code is written.
-- Target platform order (Android-first proposed).
-- Any placeholder art. For the slice, colored rectangles are proposed; real art waits for approved assets per `docs/ASSET_POLICY.md`.
-- The name/branding shown on the title screen.
+## Candidate A acceptance checks (measurable, if approved)
 
-## Explicitly out of scope for the slice
+1. On launch, one tap reaches the skate spot and the skater stands on flat ground.
+2. A drag gesture visibly accelerates the skater; a release plus upward flick produces a jump.
+3. Landing aligned on the rail registers a grind, shows a trick name, and adds to the score.
+4. A bad landing ends the run and shows the score; one tap restarts with the score reset to zero.
 
-- Open world, multiplayer, networking, accounts, leaderboards beyond local best score.
-- Trick system, combos, grinds.
-- Full physics simulation (simple gravity + collision boxes only).
-- Music, sound, monetization, app store work.
+Checkable in widget tests plus a manual run on Android.
+
+## Explicitly out of scope for any first slice
+
+- Open world, multiplayer, networking, accounts, remote leaderboards.
+- Full trick catalog, combos, progression/unlocks, customization.
+- Real-world maps, real park names, or licensed brands/media.
+- Music, sound, monetization, store publication.
 
 ## Dependencies and unknowns
 
-- Flutter is already the project SDK. A game loop can be written in plain Flutter (CustomPainter + Ticker) or with Flame; Flame is proposed but adds a dependency, which needs its own license check and owner sign-off.
-- No approved artwork exists yet, so all visuals in the slice would be placeholders.
+- Gesture feel on real hardware is unproven; the slice exists to test exactly that.
+- No approved artwork exists, so every visual is a placeholder.
+- Flame (if considered) adds a dependency that needs a license check and owner sign-off.
 - Performance on low-end Android devices is untested.
+
+No gameplay code, assets, or product-direction changes will be written or merged until @IEjuggalo approves a candidate in writing.
