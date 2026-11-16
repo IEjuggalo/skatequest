@@ -1,4 +1,4 @@
-<!-- Open a regular PR only when the change is ready for review. Drafts are not used in this repo; keep unfinished work on your branch and note the blocker in the Issue. -->
+<!-- Open a regular PR only when the change is ready for review. Drafts are not used in this repo; keep unfinished work on your branch and note the blocker in the Issue. A regular PR is not approval to merge: no PR may be merged or published until @IEjuggalo gives final approval. -->
 
 ## Linked issue
 
@@ -32,6 +32,7 @@ flutter test
 - [ ] No copyrighted assets, ROMs, BIOS files, or material without redistribution rights
 - [ ] New dependencies or assets have a license compatible with AGPLv3
 - [ ] Screenshots and logs contain no private information
+- [ ] Public text uses GitHub aliases only (`@IEjuggalo`, `@justacalico`), no personal names
 
 ## Reviewer notes
 

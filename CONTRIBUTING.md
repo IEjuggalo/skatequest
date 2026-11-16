@@ -1,6 +1,6 @@
 # Contributing to SkateQuest
 
-SkateQuest is currently a Flutter starter scaffold (the counter app). Contributions happen through Issues reviewed by the owner (Matthew), so read `AGENTS.md` first and check that an Issue exists for the work you want to do.
+SkateQuest is currently a Flutter starter scaffold (the counter app). Contributions happen through Issues reviewed by the owner (@IEjuggalo), so read `AGENTS.md` first and check that an Issue exists for the work you want to do. Use GitHub aliases only (`@IEjuggalo`, `@justacalico`) in public files, Issues, and PRs; do not use personal names.
 
 ## Setup
 
@@ -18,7 +18,7 @@ SkateQuest is currently a Flutter starter scaffold (the counter app). Contributi
 ## Branches
 
 - Never commit directly to `main`, yours or upstream's.
-- Create a short-lived branch per Issue off `upstream/main`, for example `shawn/widget-tests` or `docs/mvp-scope`.
+- Create a short-lived branch per Issue off `upstream/main`, for example `justacalico/widget-tests` or `docs/mvp-scope`.
 - One Issue, one PR. Keep unrelated refactors, dependency bumps, and formatting changes out.
 
 ## Before you open a PR
@@ -38,6 +38,7 @@ Report the Flutter and Dart versions you used (`flutter --version`). If a check 
 - **Regular PRs only, no drafts.** If the work is not ready for review, keep it on your branch and note the blocker in the Issue. Open the PR when it is ready.
 - Fill in the PR template: link the Issue, summarize the change, give exact test commands and results, attach screenshots only for UI changes.
 - A regular PR is not approval to merge. Wait for the owner's review.
+- **No PR may be merged or published until @IEjuggalo gives final approval.** This applies to contributors, automation, and documentation-only changes alike. Do not enable auto-merge.
 - Do not include secrets, credentials, personal data, private business files, console BIOS/ROMs, or assets without the required rights. See `docs/ASSET_POLICY.md` if it exists on your base branch.
 
 ## What to include as evidence
