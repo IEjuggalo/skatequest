@@ -1,0 +1,55 @@
+name: "Owner decision / reference request"
+description: "Ask for a design decision, screenshot, approved artwork, video, or requirement clarification."
+title: "[DECISION] "
+labels: ["needs review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The owner @IEjuggalo has final say. This is a request, not approval.
+        Do not include personal contact details, private source files, or unlicensed media in this public Issue.
+        For small questions, leave a comment on the existing task instead.
+  - type: input
+    id: related_issue
+    attributes:
+      label: "Related assignment"
+      placeholder: "#5"
+  - type: textarea
+    id: decision
+    attributes:
+      label: "Decision or reference needed"
+      description: "Exactly what do you need from the client?"
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: "Why is it needed?"
+      description: "Explain the deliverable or acceptance criterion it affects."
+    validations:
+      required: true
+  - type: dropdown
+    id: reference_type
+    attributes:
+      label: "Reference type"
+      options:
+        - "Written decision"
+        - "Screenshot or annotated image"
+        - "Short demonstration video"
+        - "Editable artwork/source"
+        - "Slides or briefing material"
+        - "Other"
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: "Suggested options and recommendation"
+      description: "Keep proposals clearly separate from requirements already approved."
+  - type: textarea
+    id: continue
+    attributes:
+      label: "Can work continue without this?"
+      placeholder: "Yes, by... / No, because..."
+    validations:
+      required: true
